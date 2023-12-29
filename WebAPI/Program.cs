@@ -29,8 +29,13 @@ builder.Services.AddRateLimiter(x =>
     {
         options.ReplenishmentPeriod = TimeSpan.FromSeconds(60);
         options.TokenLimit = 60;
-        options.TokensPerPeriod = 30;
+        options.TokensPerPeriod = 20;
         options.AutoReplenishment = true;
+    });
+
+    x.AddConcurrencyLimiter("concurrency", options =>
+    {
+        options.PermitLimit = 2;
     });
 });
 
