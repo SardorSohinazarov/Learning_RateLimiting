@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace WebAPI.Controllers
 {
@@ -19,6 +20,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
+        [EnableRateLimiting("fixed")]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
