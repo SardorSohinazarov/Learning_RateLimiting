@@ -9,7 +9,7 @@
 > - **Concurrency**
 
 
-> - **1. Fixed window**
+> **1. Fixed window**
 > ```
 > //service
 > builder.Services.AddRateLimiter(x =>
@@ -32,7 +32,7 @@
 > ```
 
 
-> - **2. Sliding window**
+> **2. Sliding window**
 > ```
 > //service
 > builder.Services.AddRateLimiter(x =>
@@ -56,7 +56,7 @@
 > ```
 
 
-> - **3. Token bucket**
+> **3. Token bucket**
 > ```
 > //service
 > builder.Services.AddRateLimiter(x =>
@@ -79,7 +79,7 @@
 > [EnableRateLimiting("bucket")]
 > ```
 
-> - **4. Token bucket**
+> **4. Concurrency**
 > ```
 > //service
 > builder.Services.AddRateLimiter(x =>
