@@ -24,6 +24,14 @@ builder.Services.AddRateLimiter(x =>
         options.PermitLimit = 60;
         options.QueueLimit = 10;
     });
+
+    x.AddTokenBucketLimiter("bucket", options =>
+    {
+        options.ReplenishmentPeriod = TimeSpan.FromSeconds(60);
+        options.TokenLimit = 60;
+        options.TokensPerPeriod = 30;
+        options.AutoReplenishment = true;
+    });
 });
 
 var app = builder.Build();
