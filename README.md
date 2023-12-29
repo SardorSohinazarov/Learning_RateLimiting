@@ -22,12 +22,12 @@
 >         options.QueueLimit = 20;
 >     });
 > });
-
-//middleware
-app.UseRateLimiter();
-
-//action attribute
-[EnableRateLimiting("fixed")]
-```
+> 
+> //middleware
+> app.UseRateLimiter();
+> 
+> //action attribute
+> [EnableRateLimiting("fixed")]
+> ```
 
 Mustaqil o'rganib olish uchun [tavsiya qilaman(o'zbekcha)](https://www.youtube.com/watch?v=phpZFkufcHo).
