@@ -16,6 +16,14 @@ builder.Services.AddRateLimiter(x =>
         options.PermitLimit = 60;
         options.QueueLimit = 20;
     });
+
+    x.AddSlidingWindowLimiter("sliding", options =>
+    {
+        options.Window = TimeSpan.FromSeconds(60);
+        options.SegmentsPerWindow = 6;
+        options.PermitLimit = 60;
+        options.QueueLimit = 10;
+    });
 });
 
 var app = builder.Build();
@@ -26,8 +34,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
 app.UseHttpsRedirection();
+
 app.UseRateLimiter();
 app.UseAuthorization();
 app.MapControllers();
